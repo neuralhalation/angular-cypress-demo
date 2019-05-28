@@ -25,9 +25,13 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "start-server-and-test": "^1.9.1"
   },
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "test": "cypress run",
+    "start": "gulp",
+    "ci": "start-server-and-test start http://localhost:3000 test"
   }
 }
