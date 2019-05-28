@@ -45,6 +45,9 @@ Production:
         }
     }
 
+Then execute the command: ``npm run cypress:open``. This will create
+the ``cypress`` folder.
+
 Edit the tsconfig.json
 ----------------------
 
