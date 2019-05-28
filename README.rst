@@ -34,7 +34,7 @@ While debugging:
 
 Production:
 
-.. code-block: JSON
+.. code-block:: JSON
 
     {
         "scripts": {
