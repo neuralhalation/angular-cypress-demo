@@ -1,6 +1,7 @@
 describe('/login', () => {
     beforeEach(() => {
-        cy.visit(`/#/login`)
+        indexedDB.deleteDatabase('localforage');
+        cy.visit(`/#!/login`)
     })
 
     it('greets with Sign in', () => {
@@ -10,7 +11,7 @@ describe('/login', () => {
     it('links to #/register', () => {
         cy
         .contains('Need an account?')
-        .should('have.attr', 'href', '#/register')
+        .should('have.attr', 'href', '#!/register')
     })
 
     it('requires email', () => {
@@ -32,6 +33,6 @@ describe('/login', () => {
     it('navigates to #/ on successful login', () => {
         cy.get('[type=email]').type('lyon.lenk@gmail.com')
         cy.get('[type=password]').type('m0rph0g3n3{enter}')
-        cy.hash().should('eq', '#/')
+        cy.hash().should('eq', '#!/')
     })
 })

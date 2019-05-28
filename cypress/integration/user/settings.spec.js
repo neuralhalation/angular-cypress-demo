@@ -6,4 +6,5 @@ describe('/settings', () => {
     it('greets with your settings', () => {
         cy.contains('h1', "Your Settings")
     })
+    
 })

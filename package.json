@@ -22,6 +22,7 @@
     "merge-stream": "^1.0.0",
     "mocha": "^6.1.4",
     "tslint": "^5.16.0",
+    "underscore": "^1.9.1",
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
@@ -30,7 +31,7 @@
   },
   "scripts": {
     "cypress:open": "cypress open",
-    "test": "cypress run",
+    "test": "cypress open",
     "start": "gulp",
     "ci": "start-server-and-test start http://localhost:3000 test"
   }
