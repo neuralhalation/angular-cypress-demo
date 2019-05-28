@@ -8,19 +8,18 @@ instructions
 Install the following
 ---------------------
 
-- `npm install mocha`
-- `npm install tslint`
-- `npm install gulp-cli -g`
-- `npm install gulp -D`
-- `npm install cypress`
-- `npm install underscore`
-- `npm install --save-dev start-server-and-test`
+- ``npm install mocha``
+- ``npm install tslint``
+- ``npm install gulp-cli -g``
+- ``npm install gulp -D``
+- ``npm install cypress``
+- ``npm install underscore``
+- ``npm install --save-dev start-server-and-test``
 
 Edit the package.json
 ---------------------
 
 .. code-type:: JSON
-
     {
         "scripts": {
             "cypress:open": "cypress open",
@@ -34,7 +33,6 @@ Edit the tsconfig.json
 ----------------------
 
 .. code-type:: JSON
-
     {
         "complilerOptions": {
             "allowJs": true,
@@ -47,3 +45,8 @@ Edit the tsconfig.json
             "**/*.*"
         ]
     }
+
+haiku
+=====
+
+testing our own minds / passing or failing ourselves / gates of improvement
