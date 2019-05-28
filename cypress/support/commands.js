@@ -59,6 +59,11 @@ Cypress.Commands.add('logoutPrototype', () => {
 })
 
 
+Cypress.Commands.add('cleanUpPrototype', () => {
+    // do some repeatable clean-up steps here if necessary
+})
+
+
 Cypress.Commands.add('seleniumStyleLogin', () => {
     cy.visit('/#!/login')
     const email = f.pluckCreds(Cypress.env('users'), 'stateful')[0]
