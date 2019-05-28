@@ -19,7 +19,10 @@ Install the following
 Edit the package.json
 ---------------------
 
-.. code-type:: JSON
+While debugging:
+
+.. code-block:: JSON
+    
     {
         "scripts": {
             "cypress:open": "cypress open",
@@ -29,10 +32,24 @@ Edit the package.json
         }
     }
 
+Production:
+
+.. code-block: JSON
+
+    {
+        "scripts": {
+            "cypress:open": "cypress open",
+            "test": "cypress run",
+            "start": "gulp",
+            "ci": "start-server-and-test start http://production.site test"
+        }
+    }
+
 Edit the tsconfig.json
 ----------------------
 
-.. code-type:: JSON
+.. code-block:: JSON
+    
     {
         "complilerOptions": {
             "allowJs": true,
