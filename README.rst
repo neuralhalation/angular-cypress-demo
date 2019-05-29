@@ -2,11 +2,27 @@ angular-cypress-demo
 ====================
 using cypress to automate demo.realworld.io
 
-instructions
+Link to GitHub for demo.realworld.io_.
+
+.. _demo.realworld.io: https://github.com/gothinkster/angularjs-realworld-example-app
+
+Link to Cypress_.
+
+.. _Cypress: https://www.cypress.io
+
+Did you know that JavaScript supports first-order functions?
+
+Data doesn't have to be hard. That's why I've included the use of Underscore.js_.
+
+.. Underscore.js: https://underscorejs.org
+
+Instructions
 ============
 
-Install the following
----------------------
+Installs
+--------
+
+Base packages this project will install when ``npm install`` is run.
 
 - ``npm install mocha``
 - ``npm install tslint``
@@ -15,6 +31,21 @@ Install the following
 - ``npm install cypress``
 - ``npm install underscore``
 - ``npm install --save-dev start-server-and-test``
+
+How to run this
+---------------
+
+After cloning, follow these steps to get the project running.
+
+- ``npm install``
+- ``npm run ci``
+
+This will launch Cypress. From there, select which ``spec`` to execute.
+
+Setting up from scratch
+=======================
+
+After doing the requisite installs, you'll need to change some configurations.
 
 Edit the package.json
 ---------------------
