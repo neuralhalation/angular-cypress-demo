@@ -32,8 +32,8 @@ Cypress.Commands.add('login', () => {
         url: 'http://localhost:3000/api/users/login',
         body: {
             user: {
-                email: `${f.pluckCreds(Cypress.env('users'), 'stateful').username}`,
-                password: `${f.pluckCreds(Cypress.env('users'), 'stateful').password}`
+                email: `${f.getUserCreds(Cypress.env('users'), 'stateful').username}`,
+                password: `${f.getUserCreds(Cypress.env('users'), 'stateful').password}`
             }
         }
     })
@@ -66,8 +66,8 @@ Cypress.Commands.add('cleanUpPrototype', () => {
 
 Cypress.Commands.add('seleniumStyleLogin', () => {
     cy.visit('/#!/login')
-    const email = f.pluckCreds(Cypress.env('users'), 'stateful').username
-    const password = f.pluckCreds(Cypress.env('users'), 'stateful').password
+    const email = f.getUserCreds(Cypress.env('users'), 'stateful').username
+    const password = f.getUserCreds(Cypress.env('users'), 'stateful').password
     cy.get('[type=email]').type(`${email}`)
     cy.get('[type=password]').type(`${password}{enter}`)
     cy.hash().should('eq', '#/')
