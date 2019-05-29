@@ -6,7 +6,7 @@ Link to GitHub for demo.realworld.io_.
 
 .. _demo.realworld.io: https://github.com/gothinkster/angularjs-realworld-example-app
 
-Link to Cypress_.
+Fantastic testing brought to you by Cypress_.
 
 .. _Cypress: https://www.cypress.io
 
@@ -14,7 +14,7 @@ Did you know that JavaScript supports first-order functions?
 
 Data doesn't have to be hard. That's why I've included the use of Underscore.js_.
 
-.. Underscore.js: https://underscorejs.org
+.. _Underscore.js: https://underscorejs.org
 
 Instructions
 ============
