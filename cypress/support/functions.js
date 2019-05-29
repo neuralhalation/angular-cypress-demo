@@ -53,18 +53,20 @@ const restrict = (table, pred) => {
     }, table)
 }
 
-const pluckCreds = (users, username) => {
-    return restrict(
-        project(
-            as(users, {username: 'username'}),
-            ['username', 'password']
-        ),
-        (user) => {
-            return user.username === username
-        }
+const getUserCreds = (users, username) => {
+    return _.first(
+        restrict(
+            project(
+                as(users, {username: 'username'}),
+                ['username', 'password']
+            ),
+            (user) => {
+                return user.username === username
+            }
+        )
     )
 }
 
 exports.existy
 exports.truthy
-exports.pluckCreds
+exports.getUserCreds
