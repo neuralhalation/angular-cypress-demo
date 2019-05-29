@@ -10,6 +10,12 @@ Fantastic testing brought to you by Cypress_.
 
 .. _Cypress: https://www.cypress.io
 
+Direct inspiration and some code came from watching this_ video of a talk given by Brian Mann
+at AssertJS_.
+
+.. _this: https://youtu.be/5XQOK0v_YRE
+.. _AssertJS: http://www.assertjs.com
+
 Did you know that JavaScript supports first-order functions?
 
 Data doesn't have to be hard. That's why I've included the use of Underscore.js_.
