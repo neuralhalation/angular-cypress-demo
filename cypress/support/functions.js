@@ -67,6 +67,6 @@ const getUserCreds = (users, username) => {
     )
 }
 
-exports.existy
-exports.truthy
-exports.getUserCreds
+exports.existy = existy
+exports.truthy = truthy
+exports.getUserCreds = getUserCreds

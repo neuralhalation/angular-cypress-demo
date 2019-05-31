@@ -42,6 +42,7 @@ Cypress.Commands.add('login', () => {
     })
 })
 
+
 Cypress.Commands.add('logoutPrototype', () => {
     cy.request({
         method: 'PUT',
