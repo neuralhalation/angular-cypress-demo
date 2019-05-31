@@ -34,7 +34,7 @@ Base packages this project will install when ``npm install`` is run.
 - ``npm install tslint``
 - ``npm install gulp-cli -g``
 - ``npm install gulp -D``
-- ``npm install cypress``
+- ``npm install cypress --save-dev``
 - ``npm install underscore``
 - ``npm install --save-dev start-server-and-test``
 
@@ -87,6 +87,8 @@ the ``cypress`` folder.
 
 Edit the tsconfig.json
 ----------------------
+
+This will allow you to simply call ``cypress`` without prefixing with ``npm run`` or ``npx``.
 
 .. code-block:: JSON
     
