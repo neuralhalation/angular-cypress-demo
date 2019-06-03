@@ -24,6 +24,8 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+
+
 const f = require('./functions');
 
 Cypress.Commands.add('login', () => {
@@ -62,9 +64,8 @@ Cypress.Commands.add('logoutPrototype', () => {
 
 Cypress.Commands.add('seleniumStyleLogin', () => {
     cy.visit('/#!/login')
-    const email = f.getUserCreds(Cypress.env('users'), 'stateful').username
-    const password = f.getUserCreds(Cypress.env('users'), 'stateful').password
-    cy.get('[type=email]').type(`${email}`)
-    cy.get('[type=password]').type(`${password}{enter}`)
-    cy.hash().should('eq', '#/')
+    const creds = f.getCreds(Cypress.env('users'), 'stateful')
+    cy.get('[type=email]').type(`${creds[0]}`)
+    cy.get('[type=password]').type(`${creds[1]}{enter}`)
+    cy.hash().should('eq', '#!/')
 })

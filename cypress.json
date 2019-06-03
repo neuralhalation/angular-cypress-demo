@@ -1,6 +1,8 @@
 {
     "baseUrl": "http://localhost:3000",
-    "users": [
-        {"username": "stateful", "email": "stateful@symplr.com", "password": "password01"}
-    ]
+    "env": {
+        "users": [
+            {"username": "stateful", "email": "stateful@symplr.com", "password": "password01"}
+        ]
+    }
 }
