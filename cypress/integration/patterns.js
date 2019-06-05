@@ -5,8 +5,8 @@ describe('/some_endpoint_w_iframe', () => {
     });
 
     it('has an element class that all produce the same behavior w/ click', () => {
-        cy.get('#iframe').iframe().find('.some-class').each(($el) => {
-            cy.wrap($el).then(($element) => {
+        cy.get('#iframe').iframe().find('.some-class').each(($element) => {
+            cy.wrap($element).then(() => {
                 const elementState = cy.get($element).then(() => {
                     return $element.css('changing-property');
                 });
