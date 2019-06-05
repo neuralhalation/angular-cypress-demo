@@ -69,3 +69,12 @@ Cypress.Commands.add('seleniumStyleLogin', () => {
     cy.get('[type=password]').type(`${creds[1]}{enter}`)
     cy.hash().should('eq', '#!/')
 })
+
+/** Command to handle iframes */
+Cypress.Commands.add('iframe', { prevSubject: 'element'}, $iframe => {
+    return new Cypress.Promise(resolve => {
+        $iframe.on('load', () => {
+            resolve($iframe.contents().find('body'));
+        });
+    });
+});
