@@ -4,6 +4,13 @@ describe('/some_endpoint_w_iframe', () => {
         cy.visit('/some_endpoint_w_iframe');
     });
 
+    it('has an element class w/ inner text to be matched', () => {
+        const labels = ['tab1', 'tab2', 'tab3']
+        cy.get('#iframe').iframe().find('.some-class').each(($element, i) => {
+            cy.wrap($element).should('contain', labels[i]);
+        });
+    });
+
     it('has an element class that all produce the same behavior w/ click', () => {
         cy.get('#iframe').iframe().find('.some-class').each(($element) => {
             cy.wrap($element).then(() => {
