@@ -1,29 +1,74 @@
-//** Scaffold describes that shows off some common function patterns */
-describe('/some_endpoint_w_iframe', () => {
-    beforEach(() => {
-        cy.visit('/some_endpoint_w_iframe');
-    });
+const f = require('../support/functions');
 
-    it('has an element class w/ inner text to be matched', () => {
-        const labels = ['tab1', 'tab2', 'tab3']
-        cy.get('#iframe').iframe().find('.some-class').each(($element, i) => {
-            cy.wrap($element).should('contain', labels[i]);
+//** Describes some common function patterns validating a form */
+describe('generic form functions', () => {
+    
+    Cypress.env('routes').forEach((route) => {
+
+        it('has header', () => {
+            cy.visit(route['route']);
+            cy.get('#iframe').iframe().find('h1').should('contain', route['header']);
         });
-    });
 
-    it('has an element class that all produce the same behavior w/ click', () => {
-        cy.get('#iframe').iframe().find('.some-class').each(($element) => {
-            cy.wrap($element).then(() => {
-                const elementState = cy.get($element).then(() => {
-                    return $element.css('changing-property');
+        it('has clickable conditional elements', () => {
+            cy.visit(route['route']);
+            cy.get('#iframe').iframe().find('.some-class').each((element) => {
+                cy.wrap(element).then(() => {
+                    const state = element.attr('changable-attribute');
+                    cy.get(element).click();
+                    cy.get(element).should(() => {
+                        expect(element.attr('changable-attribute') !== state);
+                    });
                 });
+            });
+        });
 
-                cy.get($element).click();
+        it('has fillable textboxes', () => {
+            cy.visit(route['route']);
+            let values = []
+            cy.get('#iframe').iframe().find('input').each((element) => {
+                cy.wrap(element).then(() => {
+                    if (f.inputIsNotDissabled(element, 'text')) {
+                        values.push(element.attr('value'));
+                        cy.get(element).clear({force: true}).type('this is a test{enter}', {force: true});
+                    }
+                });
+            });
+            /*
+                For some reason, if you try to execute cy.get() to find the iframe after
+                finding it previously, the search will eventually time out, or run
+                infinitely, I haven't checked. Once an iframe is found, cy.get() seems
+                to keep your 'scope' inside the iframe, thus allowing us to successfully
+                select the <form> tag in our second step.
+            */
+            cy.get('form').find('input').each((element, i) => {
+                cy.wrap(element).then(() => {
+                    if (f.inputIsNotDissabled(element, 'text')) {
+                        cy.get(element).should('not.have.value', values[i]);
+                    }
+                });
+            });
+        });
 
-                cy.get($element).should(() => {
-                    expect($element.css('changing-property')).not.to.eq(elementState);
+        it('has checkable checkboxes', () => {
+            cy.visit(route['route']);
+            let values = []
+            cy.get('#iframe').iframe().find('input').each((element) => {
+                cy.wrap(element).then(() => {
+                    if (f.inputIsNotDissabled(element, 'checkbox')) {
+                        values.push(element.attr('value'));
+                        cy.get(element).check({force: true});
+                    }
+                });
+            });
+            cy.get('form').find('input').each((element, i) => {
+                cy.wrap(element).then(() => {
+                    if (f.inputIsNotDissabled(element, 'checkbox')) {
+                        cy.get(element).should('not.have.value', values[i]);
+                    }
                 });
             });
         });
     });
+
 });
