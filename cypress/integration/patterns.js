@@ -28,7 +28,7 @@ describe('generic form functions', () => {
             let values = []
             cy.get('#iframe').iframe().find('input').each((element) => {
                 cy.wrap(element).then(() => {
-                    if (f.inputIsNotDissabled(element, 'text')) {
+                    if (f.elementWithAttributeNotDisabled(element, 'type', 'text')) {
                         values.push(element.attr('value'));
                         cy.get(element).clear({force: true}).type('this is a test{enter}', {force: true});
                     }
@@ -43,7 +43,7 @@ describe('generic form functions', () => {
             */
             cy.get('form').find('input').each((element, i) => {
                 cy.wrap(element).then(() => {
-                    if (f.inputIsNotDissabled(element, 'text')) {
+                    if (f.elementWithAttributeNotDisabled(element, 'type', 'text')) {
                         cy.get(element).should('not.have.value', values[i]);
                     }
                 });
@@ -55,7 +55,7 @@ describe('generic form functions', () => {
             let values = []
             cy.get('#iframe').iframe().find('input').each((element) => {
                 cy.wrap(element).then(() => {
-                    if (f.inputIsNotDissabled(element, 'checkbox')) {
+                    if (f.elementWithAttributeNotDisabled(element, 'type', 'checkbox')) {
                         values.push(element.attr('value'));
                         cy.get(element).check({force: true});
                     }
@@ -63,7 +63,7 @@ describe('generic form functions', () => {
             });
             cy.get('form').find('input').each((element, i) => {
                 cy.wrap(element).then(() => {
-                    if (f.inputIsNotDissabled(element, 'checkbox')) {
+                    if (f.elementWithAttributeNotDisabled(element, 'type', 'checkbox')) {
                         cy.get(element).should('not.have.value', values[i]);
                     }
                 });
