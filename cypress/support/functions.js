@@ -13,11 +13,11 @@ const getCreds = (users, username) => {
     return _.toArray(_.pick(user, ['email', 'password']))
 }
 
-const inputIsNotDissabled = (element, inputType) => {
+const inputIsNotDisabled = (element, inputType) => {
     return !element.attr('disabled') && element.attr('type') === inputType;
 }
 
 exports.existy = existy
 exports.truthy = truthy
 exports.getCreds = getCreds
-exports.inputIsNotDissabled = inputIsNotDissabled
+exports.inputIsNotDisabled = inputIsNotDisabled
